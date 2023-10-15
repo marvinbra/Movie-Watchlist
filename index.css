@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    background: black;
+    color: white;
+}
+
+section {
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+
+section > input {
+    width: 55%;
+    padding: 0.5em;
+    background: #4B4B4B;
+    color: #A5A5A5;
+    border: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+section > button {
+    width: 22%;
+    background: #A5A5A5;
+    color: white;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
