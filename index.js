@@ -1,6 +1,7 @@
 const searchEl = document.getElementById("search-input")
 const searchBtn = document.getElementById("search-btn")
 const main = document.getElementById("main")
+const mainWatchlist = document.getElementById("watchlist-main")
 let dataArr = []
 
 searchBtn.addEventListener("click", () => {
@@ -8,7 +9,7 @@ searchBtn.addEventListener("click", () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            dataArr = data
+            dataArr.push(data)
             main.innerHTML += `
                 <div>
                     <img src="${data.Poster}" />
@@ -38,5 +39,33 @@ main.addEventListener("click", (e) => {
     if (e.target && e.target.id === "main-btn") {
         console.log("works")
         console.log(dataArr)
+        
+        dataArr.forEach( (data)  => {
+                main.innerHTML += `
+            <div class="movieContainer">
+                <div>
+                    <img src="${data.Poster}" />
+                </div>
+                <div>
+                    <h3>${data.Title}</h3>
+                    <a>${data.imdbRating}</a>
+                </div>
+                <div>
+                    <p>${data.Runtime}</p>
+                    <p>${data.Genre}</p>
+                    <div>
+                        <button id="main-btn" class="main-btn">+</button>
+                        <a>Watchlist</a>
+                    </div>
+                </div>
+                <div>
+                    <p>${data.Plot}</p>
+                </div>
+                <hr />
+            </div class="movieContainer">
+            `
+            searchEl.value = ""
+        })
+        
     }
 })
