@@ -79,3 +79,13 @@ document.getElementById("test").addEventListener("click", () => {
             }
         })
 })
+
+searchBtn.addEventListener("click", () => {
+    for (let i = 0; i < moviesArr.length; i++) {
+        fetch(`https://www.omdbapi.com/?t=${moviesArr[i]}&apikey=d4da1b9a`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.Title)
+        })
+    }
+})
