@@ -69,3 +69,13 @@ main.addEventListener("click", (e) => {
         
     }
 })
+
+document.getElementById("test").addEventListener("click", () => {
+    fetch(`https://www.omdbapi.com/?s=${searchEl.value}&apikey=d4da1b9a`)
+        .then(res => res.json())
+        .then(data => {
+            for(let i=0; i < 5; i++) {
+                console.log(data.Search[i].Title)
+            }
+        })
+})
