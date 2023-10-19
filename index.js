@@ -48,6 +48,7 @@ searchBtn.addEventListener("click", () => {
         .then(data => {
             for(let i=0; i < 5; i++) {
                 let filmsInfo = data.Search[i].Title
+                main.innerHTML = ``
                 moviesArr.push(filmsInfo)
                 console.log(moviesArr)
             }
@@ -79,6 +80,7 @@ searchBtn.addEventListener("click", () => {
                             <hr />
                         `
                         searchEl.value = ""
+                        moviesArr = []
                 })   
             }
       })
