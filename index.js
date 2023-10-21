@@ -3,9 +3,10 @@ const searchBtn = document.getElementById("search-btn")
 const main = document.getElementById("main")
 const mainWatchlist = document.getElementById("watchlist-main")
 let moviesArr = []
+let watchList = []
 
 searchBtn.addEventListener("click", () => {
-        fetch(`https://www.omdbapi.com/?s=${searchEl.value}&apikey=d4da1b9a`)
+    fetch(`https://www.omdbapi.com/?s=${searchEl.value}&apikey=d4da1b9a`)
         .then(res => res.json())
         .then(data => {
             for(let i=0; i < 5; i++) {
@@ -19,7 +20,6 @@ searchBtn.addEventListener("click", () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data.imdbID)
-                        localStorage.setItem("movieData", JSON.stringify(data))
                     })
                 
             }
@@ -40,7 +40,10 @@ searchBtn.addEventListener("click", () => {
                                     <p>${data.Runtime}</p>
                                     <p>${data.Genre}</p>
                                     <div>
-                                        <button id="main-btn" class="main-btn">+</button>
+                                        <button
+                                         id="main-btn" 
+                                         class="main-btn" 
+                                         data-imdb-id="${data.imdbID}">+</button>
                                         <a>Watchlist</a>
                                     </div>
                                 </div>
@@ -50,8 +53,8 @@ searchBtn.addEventListener("click", () => {
                             </div>
                             <hr />
                         `
-                        searchEl.value = ""
-                        moviesArr = []
+                    searchEl.value = ""
+                    moviesArr = []
                 })   
             }
       })
@@ -59,8 +62,11 @@ searchBtn.addEventListener("click", () => {
 
 main.addEventListener("click", (e) => {
     if (e.target && e.target.id === "main-btn") {
-        console.log("works")
-        const movieData = JSON.parse(localStorage.getItem(idInfo.imdbID))
-        console.log(movieData)
+        const imdbID = e.target.getAttribute("data-imdb-id")
+        console.log(imdbID)
+        watchList.push(imdbID)
+        localStorage.setItem("watchList", JSON.stringify(watchList))
+        const watchListId = localStorage.getItem("watchList")
+        console.log(watchListId)
     }
 })
