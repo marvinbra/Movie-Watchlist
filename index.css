@@ -12,6 +12,16 @@ header {
     color: white;
 }
 
+header > a {
+    color: white;
+    text-decoration: none;
+}
+
+.h2-link {
+    font-size: 2rem;
+    padding: 0.35em;
+}
+
 section {
     margin-top: 1.5em;
     display: flex;
@@ -35,5 +45,15 @@ section > button {
     border: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.main-btn {
+    padding: 0.5em;
     cursor: pointer;
+    border: 1px solid black;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
 }
