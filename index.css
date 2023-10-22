@@ -45,6 +45,7 @@ section > button {
     border: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    cursor: pointer;
 }
 
 .main-btn {
