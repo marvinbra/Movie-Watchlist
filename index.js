@@ -11,7 +11,6 @@ searchBtn.addEventListener("click", () => {
         .then(data => {
             for(let i=0; i < 5; i++) {
                 let filmsInfo = data.Search[i].Title
-                let idInfo = data.Search[i]
                 main.innerHTML = ``
                 moviesArr.push(filmsInfo)
                 // console.log(moviesArr)
@@ -23,30 +22,29 @@ searchBtn.addEventListener("click", () => {
                     .then(data => {
                         movieData.push(data)
                          main.innerHTML += `
-                            <div class="film-img">
-                                <img src="${data.Poster}" />
-                            </div>
-                            <div class="film-info">
-                                <div>
-                                    <h3>${data.Title}</h3>
-                                    <a>${data.imdbRating}</a>
+                            <div class="movie-container">
+                                <div class="poster-container">
+                                    <img src="${data.Poster}" />
                                 </div>
-                                <div>
-                                    <p>${data.Runtime}</p>
-                                    <p>${data.Genre}</p>
-                                    <div>
+                                <div class="movie-details-container">
+                                    <div class="title-rating">
+                                        <h2>${data.Title}</h2>
+                                        <p>${data.imdbRating}</p>
+                                    </div>
+                                    <div class="time-genre">
+                                        <p class="time">${data.Runtime}</p>
+                                        <p class="time">${data.Genre}</p>
                                         <button
-                                         id="main-btn" 
-                                         class="main-btn" 
-                                         data-imdb-id="${data.imdbID}">+</button>
+                                            id="main-btn" 
+                                            class="main-btn" 
+                                            data-imdb-id="${data.imdbID}">+
+                                        </button>
                                         <a>Watchlist</a>
                                     </div>
-                                </div>
-                                <div>
                                     <p>${data.Plot}</p>
                                 </div>
                             </div>
-                            <hr />
+                            <hr/>
                         `
                     searchEl.value = ""
                     moviesArr = []
@@ -67,3 +65,4 @@ main.addEventListener("click", (e) => {
         }
     }
 })
+
