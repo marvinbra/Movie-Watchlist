@@ -29,7 +29,7 @@ searchBtn.addEventListener("click", () => {
                                 <div class="movie-details-container">
                                     <div class="title-rating">
                                         <h2>${data.Title}</h2>
-                                        <p>${data.imdbRating}</p>
+                                        <p>⭐${data.imdbRating}</p>
                                     </div>
                                     <div class="time-genre">
                                         <p class="time">${data.Runtime}</p>

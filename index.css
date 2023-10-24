@@ -45,6 +45,7 @@ section > button {
     border: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    cursor: pointer;
 }
 
 main {
@@ -52,6 +53,10 @@ main {
     display: flex;
     flex-direction: column;
     margin: auto;
+}
+
+.main-btn {
+    cursor: pointer;
 }
 
 .movie-container {
@@ -63,14 +68,25 @@ main {
 }
 
 .poster-container {
-    height: 150px;
-    height: 50%;
     border: 1px solid yellow;
 }
 
+
 .movie-details-container {
     border: 1px solid red;
+    padding-left: 1em;
     height: 70vh;
+}
+
+.title-rating {
+    border: 1px solid brown;
+    width: 70%;
+    display: flex;
+}
+
+.title-rating > p {
+    vertical-align: middle;
+    margin: auto;
 }
 
 .time-genre {
