@@ -24,7 +24,7 @@ searchBtn.addEventListener("click", () => {
                          main.innerHTML += `
                             <div class="movie-container">
                                 <div class="poster-container">
-                                    <img src="${data.Poster}" />
+                                    <img class="film-img" src="${data.Poster}" />
                                 </div>
                                 <div class="movie-details-container">
                                     <div class="title-rating">
@@ -34,12 +34,14 @@ searchBtn.addEventListener("click", () => {
                                     <div class="time-genre">
                                         <p class="time">${data.Runtime}</p>
                                         <p class="time">${data.Genre}</p>
-                                        <button
-                                            id="main-btn" 
-                                            class="main-btn" 
-                                            data-imdb-id="${data.imdbID}">+
-                                        </button>
-                                        <a>Watchlist</a>
+                                        <div class="watchlist-btn">
+                                            <button
+                                                id="main-btn" 
+                                                class="main-btn" 
+                                                data-imdb-id="${data.imdbID}">+
+                                            </button>
+                                            <a>Watchlist</a>
+                                        </div>
                                     </div>
                                     <p>${data.Plot}</p>
                                 </div>

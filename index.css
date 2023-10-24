@@ -45,16 +45,44 @@ section > button {
     border: 0;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    cursor: pointer;
-}
-
-.main-btn {
-    padding: 0.5em;
-    cursor: pointer;
-    border: 1px solid black;
 }
 
 main {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
+
+.movie-container {
+    display: flex;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.poster-container {
+    height: 150px;
+    height: 50%;
+    border: 1px solid yellow;
+}
+
+.movie-details-container {
+    border: 1px solid red;
+    height: 70vh;
+}
+
+.time-genre {
+    border: 1px solid green;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.watchlist-btn {
+    border: 1px solid violet;
+    margin: auto 0;
+}
+
+
