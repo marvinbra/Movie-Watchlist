@@ -55,18 +55,21 @@ searchBtn.addEventListener("click", () => {
       })
 })
 
-const watchListId = JSON.parse(localStorage.getItem("watchList"))
+const movieDataObj = JSON.parse(localStorage.getItem("movieDataObj"))
 
 main.addEventListener("click", (e) => {
     if (e.target && e.target.id === "main-btn") {
         const imdbID = e.target.getAttribute("data-imdb-id")
+
+        // get added movie from id 
         localStorage.setItem("watchList", JSON.stringify(imdbID))
+        const watchListId = JSON.parse(localStorage.getItem("watchList"))
+
         if (imdbID) {
             const filmObj = movieData.find(obj => obj.imdbID === watchListId)
-            console.log(watchListId)
-            main.innerHTML = `
-                <p>${filmObj.Title}</p>
-            `
+            localStorage.setItem("movieDataObj", JSON.stringify(filmObj))
+            console.log(movieDataObj)
+            mainWatchlist.textContent = `${movieDataObj.Title}`
         }
     }
 })
