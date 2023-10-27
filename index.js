@@ -12,7 +12,8 @@ searchBtn.addEventListener("click", () => {
                 let filmsInfo = data.Search[i].Title
                 main.innerHTML = ``
                 moviesArr.push(filmsInfo)
-                // console.log(moviesArr)
+                movieData = []
+                //console.log(movieData)
             }
             
             for (let i = 0; i < moviesArr.length; i++) {
@@ -59,10 +60,12 @@ main.addEventListener("click", (e) => {
         const imdbID = e.target.getAttribute("data-imdb-id")
 
         // get added movie from id 
-        localStorage.setItem("watchList", JSON.stringify(imdbID))
-        const watchListId = JSON.parse(localStorage.getItem("watchList"))
-        
-        const filmObj = movieData.find(obj => obj.imdbID === watchListId)
+        //localStorage.setItem("watchList", JSON.stringify(imdbID))
+        //onst watchListId = JSON.parse(localStorage.getItem("watchList"))
+    
+        const filmObj = movieData.find(obj => obj.imdbID === imdbID)
+        console.log(filmObj)
+        console.log(movieData)
 
         if (filmObj) {
             const movieDataObj = JSON.parse(localStorage.getItem("movieDataObj")) || []
