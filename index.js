@@ -1,7 +1,6 @@
 const searchEl = document.getElementById("search-input")
 const searchBtn = document.getElementById("search-btn")
 const main = document.getElementById("main")
-const mainWatchlist = document.getElementById("watchlist-main")
 let moviesArr = []
 let movieData = []
 
@@ -55,8 +54,6 @@ searchBtn.addEventListener("click", () => {
       })
 })
 
-const movieDataObj = JSON.parse(localStorage.getItem("movieDataObj"))
-
 main.addEventListener("click", (e) => {
     if (e.target && e.target.id === "main-btn") {
         const imdbID = e.target.getAttribute("data-imdb-id")
@@ -64,13 +61,14 @@ main.addEventListener("click", (e) => {
         // get added movie from id 
         localStorage.setItem("watchList", JSON.stringify(imdbID))
         const watchListId = JSON.parse(localStorage.getItem("watchList"))
+        
+        const filmObj = movieData.find(obj => obj.imdbID === watchListId)
 
-        if (imdbID) {
-            const filmObj = movieData.find(obj => obj.imdbID === watchListId)
-            localStorage.setItem("movieDataObj", JSON.stringify(filmObj))
+        if (filmObj) {
+            const movieDataObj = JSON.parse(localStorage.getItem("movieDataObj")) || []
+            movieDataObj.push(filmObj)
+            localStorage.setItem("movieDataObj", JSON.stringify(movieDataObj))
             console.log(movieDataObj)
-            mainWatchlist.textContent = `${movieDataObj.Title}`
         }
     }
 })
-
