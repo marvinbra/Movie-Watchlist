@@ -35,3 +35,10 @@ function render() {
            `   
     }
 }
+
+deleteBtn.addEventListener("click", ()=>{
+    localStorage.clear()
+    mainWatchlist.innerHTML = ``
+})
+
+render()
